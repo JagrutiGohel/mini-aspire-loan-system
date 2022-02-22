@@ -4,11 +4,11 @@ The project focuses on creating a mini version of Aspire so that the candidate c
 
 The task is defined below:
 
- - Build a simple API that allows to handle user loans.
- - Necessary entities will have to be (but not limited to): users, loans, and repayments.
- - The API should allow simple use cases, which include (but are not limited to): creating a new user, creating a new loan for a user, with different attributes (e.g. duration, repayment frequency, interest rate, arrangement fee, etc.), and allowing a user to make repayments for the loan.
- - The app logic should figure out and not allow obvious errors. For example a user cannot make a repayment for a loan that’s already been repaid.
-
+ - It is an app that allows authenticated users to go through a loan application. It doesn’t have to contain too many fields, but at least “amount
+required” and “loan term.” 
+ - All the loans will be assumed to have a “weekly” repayment frequency.
+After the loan is approved, the user must be able to submit the weekly loan repayments. It can be a simplified repay functionality, which won’t
+need to check if the dates are correct but will just set the weekly amount to be repaid.
 ## Installation Instructions
 
 - Run `composer install`
