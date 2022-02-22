@@ -35,17 +35,17 @@ class RepaymentsController extends Controller
                 try {
                     $total_interest = $loan->approved_amount * ($loan->interest_rate * $loan->loan_tenor / 100);
                     $total_amount_repayable = $loan->approved_amount + $total_interest;
-                    $monthly_total_repayment = number_format($total_amount_repayable / $loan->loan_tenor, 2, '.', '');
+                    $weekly_total_repayment = number_format($total_amount_repayable / $loan->loan_tenor, 2, '.', '');
                     $repayment_amount = number_format($data['repayment_amount'], 2, '.', '');
 
-                    if ($monthly_total_repayment === $repayment_amount) {
+                    if ($weekly_total_repayment === $repayment_amount) {
                         $repayment = $loan->repayments()->create($data);
                         event(new RepaymentCreated($repayment));
 
                         return $this->respondWithSuccess('Repayment created.', ['repayment' => RepaymentResource::make($repayment)]);
                     }
 
-                    return $this->respondWithError('You must pay a repayment amount of ' . number_format($monthly_total_repayment, 2));
+                    return $this->respondWithError('You must pay a repayment amount of ' . number_format($weekly_total_repayment, 2));
                 } catch (\Exception $e) {
                     return $this->respondWithError('Something went wrong! Please try again.');
                 }
@@ -57,3 +57,4 @@ class RepaymentsController extends Controller
         return $this->respondWithError('Data validation failed.', $response);
     }
 }
+    
