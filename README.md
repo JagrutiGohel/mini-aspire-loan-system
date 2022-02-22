@@ -19,7 +19,7 @@ The task is defined below:
 
 ## API Documentation
 
-- [Postman Collection](https://www.getpostman.com/collections/1865a4ef920033776cef)
+- [Postman Collection](https://www.getpostman.com/collections/deb4318af6533dcd6591)
 
 ## Third-party Packages Used
 
